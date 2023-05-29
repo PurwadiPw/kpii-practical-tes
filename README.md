@@ -26,37 +26,29 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
-
+### How to run with Docker
+1. If you are using Docker, just run the following command:
 ```bash
-$ npm install
+# build the container
+$ docker-compose build
+
+# running up the container
+$ docker-compose up -d
 ```
+2. Once the container is running, Everything will be set up including the database. Use this URL http://localhost:3000
 
-## Running the app
-
+### How to run without Docker
+1. Change the `MONGO_URL` variable in `.env` file according to your preference.
+2. Run the following command:
 ```bash
-# development
-$ npm run start
+#install depedencies
+$ npm install
 
 # watch mode
 $ npm run start:dev
-
-# production mode
-$ npm run start:prod
 ```
-
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
-```
+3. Import the collection located in `docker/mongodb/seed`
+4. Use this URL http://localhost:3000
 
 ## Support
 

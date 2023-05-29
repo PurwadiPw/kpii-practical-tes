@@ -1,0 +1,37 @@
+[{
+  "_id": {
+    "$oid": "6473f7464ede96313ad80d33"
+  },
+  "skill": "coding",
+  "title": "code everytime",
+  "description": "code sleep repeat",
+  "startdate": {
+    "$date": "2023-05-01T00:00:00.000Z"
+  },
+  "enddate": {
+    "$date": "2023-05-30T03:00:00.000Z"
+  },
+  "participants": [
+    "purw"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "647404682f26ad8297d65846"
+  },
+  "skill": "debugging",
+  "title": "debugging everytime",
+  "description": "debug sleep repeat",
+  "startdate": {
+    "$date": "2023-05-05T00:00:00.000Z"
+  },
+  "enddate": {
+    "$date": "2023-05-25T00:00:00.000Z"
+  },
+  "participants": [
+    "pewe",
+    "purwa"
+  ],
+  "__v": 0
+}]

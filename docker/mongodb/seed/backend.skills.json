@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "631899e275cd6ad7d8eaabe6"
+  },
+  "skillName": "coding",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6473e71f3dc2bfe865b3b45c"
+  },
+  "skillName": "debugging",
+  "__v": 0
+}]

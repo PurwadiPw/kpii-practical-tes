@@ -1,0 +1,64 @@
+version: '3.1'
+services:
+  backend-app:
+    container_name: backend-app
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+      target: development
+    command: npm run start:dev
+    ports:
+      - 3000:3000
+    env_file:
+      - ./.env
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    networks:
+      - backend-network
+    depends_on:
+      - backend-mongodb
+  backend-mongodb:
+    image: mongo:latest
+    container_name: backend-mongodb
+    restart: always
+    ports:
+      - '${MONGODB_PORT_FORWARD:-27017}:27017'
+    env_file:
+      - ./.env
+    volumes:
+      - ./docker/mongodb/mongod.conf:/etc/mongod.conf
+      - ./docker/mongodb/initdb.d/mongo-init.sh:/docker-entrypoint-initdb.d/mongo-init.sh:ro
+      - ./docker/mongodb/data/db/:/data/db/
+      - ./docker/mongodb/data/log/:/var/log/mongodb/
+    networks:
+      - backend-network
+    environment:
+      MONGO_INITDB_ROOT_DATABASE: ${MONGO_INITDB_ROOT_DATABASE}
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE}
+      MONGO_INITDB_USERNAME: ${MONGO_USERNAME}
+      MONGO_INITDB_PASSWORD: ${MONGO_PASSWORD}
+      TZ: 'Asia/Jakarta'
+    command: ["-f", "/etc/mongod.conf", "--auth"]
+  backend-mongodb-seed:
+    image: mongo:latest
+    container_name: backend-mongodb-seed
+    links:
+      - backend-mongodb
+    volumes:
+      - ./docker/mongodb/seed/:/data/seed/
+    networks:
+      - backend-network
+    environment:
+      MONGO_INITDB_DATABASE: ${MONGO_DATABASE}
+      MONGO_INITDB_USERNAME: ${MONGO_USERNAME}
+      MONGO_INITDB_PASSWORD: ${MONGO_PASSWORD}
+    command:
+      ["/data/seed/import.sh"]
+
+networks:
+  backend-network:
+    driver: bridge
