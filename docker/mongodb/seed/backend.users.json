@@ -1,5 +1,21 @@
 [{
   "_id": {
+    "$oid": "6473f6c94ede96313ad80d29"
+  },
+  "name": "pewe",
+  "email": "pewe@gmail.com",
+  "username": "pewe",
+  "password": "$2b$10$ZrKyxYHD1bgwWEcK8K35XucRWIjsMLJxkyxqbhmf0eTmJLdpEGaCu",
+  "profile": "expert",
+  "skill": [
+    "coding",
+    "debugging",
+    "testing"
+  ],
+  "__v": 0
+},
+{
+  "_id": {
     "$oid": "6473e71f3dc2bfe865b3b45e"
   },
   "name": "purwa",
@@ -15,16 +31,17 @@
 },
 {
   "_id": {
-    "$oid": "6473f6c94ede96313ad80d29"
+    "$oid": "64742290300d351e0047fe1f"
   },
-  "name": "pewe",
-  "email": "pewe@gmail.com",
-  "username": "pewe",
-  "password": "$2b$10$ZrKyxYHD1bgwWEcK8K35XucRWIjsMLJxkyxqbhmf0eTmJLdpEGaCu",
+  "name": "andi",
+  "email": "andi@gmail.com",
+  "username": "andi",
+  "password": "$2b$10$1CIbYXrr2F8mfrUZHiyvYej8Mm1Ku9FdjNwJp27WdCRNs68Bz5bJq",
   "profile": "expert",
   "skill": [
     "coding",
-    "debugging"
+    "debugging",
+    "testing"
   ],
   "__v": 0
 }]
